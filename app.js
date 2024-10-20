@@ -63,13 +63,15 @@ app.get("/login", (req, res) => {
     res.render("login.ejs");
 })
 
-app.get("/test", (req, res) => {
-    res.render("test.ejs");
-})
+app.use((req, res, next) => {
+    res.status(404).render('404');  // This will render the 404.ejs file
+});
 
 app.get("/profile/upload", (req, res) => {
     res.render("profileupload.ejs");
 })
+
+
 
 
 // This is upload route where we can upload the image for the profile picture 
